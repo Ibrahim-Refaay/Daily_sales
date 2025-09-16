@@ -40,10 +40,10 @@ jobs:
       - name: Run Inventory ETL script
         # --- MODIFICATION: Provide ALL required secrets to the script ---
         env:
-          ODOO_URL: ${{ secrets.ODOO_URL }}
-          ODOO_DB: ${{ secrets.ODOO_DB }}
-          ODOO_USERNAME: ${{ secrets.ODOO_USERNAME }}
-          ODOO_PASSWORD: ${{ secrets.ODOO_PASSWORD }}
+          ODOO_URL: ${{ vars.ODOO_URL }}
+          ODOO_DB: ${{ vars.ODOO_DB }}
+          ODOO_USERNAME: ${{ vars.ODOO_USERNAME }}
+          ODOO_PASSWORD: ${{ vars.ODOO_PASSWORD }}
           # The Google Auth step above handles authentication automatically,
           # so GOOGLE_APPLICATION_CREDENTIALS is no longer needed here.
         run: python odoo_inventory_pipeline.py # Or inventory_etl.py, use your correct filename
